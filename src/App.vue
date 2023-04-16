@@ -1,10 +1,6 @@
 <template>
   <div class="container-sm"> 
     <HeaderComp></HeaderComp>
-    <router-link to="WeatherCard"></router-link>
-
-    <router-view></router-view>
-
   </div>
 </template>
 

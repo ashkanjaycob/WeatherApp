@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div>
         <nav class="navbar bg-body-tertiary p-4  border-bottom border-success">
             <div class="container">
                 <a class="navbar-brand">Weather forecast by Ashkan Yaghobi</a>
@@ -9,31 +9,37 @@
                 </form>
             </div>
         </nav>
+        <weatherShow :data="data"></weatherShow>     
     </div>
 </template>
 
 <script>
 import axios from 'axios'
-import {ref} from 'vue'
+import WeatherShow from './weatherShow.vue'
+import { ref } from 'vue'
 export default {
     name: 'HeaderComp',
+    components: {
+        WeatherShow
+    },
     setup() {
 
         const Api = ref('235785bc369ab18214c37221df285463'
         );
+        const data = ref({});
 
         // Make a request for a user with a given ID
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${Api.value}`)
+        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=${Api.value}`)
             .then(function (response) {
-                console.log(response.data);
+                data.value = response.data;
+                console.log(data.value);
             })
             .catch(function (error) {
                 // handle error
                 console.log(error);
             });
 
-            
-            return{Api}
+        return { Api, data }
     }
 }
 </script>

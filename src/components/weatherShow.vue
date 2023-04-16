@@ -1,44 +1,36 @@
 <template>
-    <div class="text-center d-flex justify-content-center m-4">
-        <div class="card mx-4" style="width: 30rem;">
-            <img src="../assets/Rain1.jpg" class="card-img-top" alt="#">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-            <div class="card-body">
-                <a href="" class="card-link">Card link</a>
-                <a href="" class="card-link">Another link</a>
-            </div>
-        </div>
-        <div class="card mx-4" style="width: 30rem;">
-            <img src="../assets/Rain1.jpg" class="card-img-top" alt="#">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-            <div class="card-body">
-                <a href="" class="card-link">Card link</a>
-                <a href="" class="card-link">Another link</a>
+    <div>
+        <div class=" d-flex justify-content-center m-4">
+            <div class="card mx-4" style="width: 24rem;">
+                <img src="../assets/Rain1.jpg" class="card-img-top" alt="#">
+                <div class="card-body">
+                    <h6 class="card-title"><h1 class="py-2"> {{ data.name }} </h1>
+                    </h6>
+                    <h5>{{ data.weather[0].main }}</h5>
+                    <p class="card-text">{{ data.weather[0].description
+                    }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h5>Temp</h5> Feels Like : {{ data.main.feels_like }}/ Humidity :
+                        {{ data.main.humidity }}/pressure : {{ data.main.pressure }}</li>
+                    <li class="list-group-item"><h5>Wind</h5> deg : {{ data.wind.deg }}/gust : {{ data.wind.gust }}/speed :
+                        {{ data.wind.speed }}</li>
+                    <!-- <li class="list-group-item">Country Name : {{ data.sys.country }}</li> -->
+                </ul>
             </div>
         </div>
     </div>
 </template>
 <script>
+
 export default {
-    name:'weatherShow'
+    name: 'weatherShow',
+    props: {
+        data: Object
+    },
+    setup() {
+
+    }
 }
 </script>
 <style></style>
