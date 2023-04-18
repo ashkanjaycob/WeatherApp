@@ -3,7 +3,7 @@
         
         <div class="row d-flex justify-content-center  ">
             <div class="card m-2 col-10 col-md-8 col-lg-5">
-                <img src="../assets/Rain1.jpg" class="card-img-top rounded" alt="...">
+                <img src="../assets/giphy.gif" class="card-img-top rounded" alt="...">
                 <div class="card-body">
                     <h1 class="card-title d-inline">{{ data.name }} </h1>
                     <h3 class="card-title d-inline mx-5">~ {{ data.weather[0].main}}</h3> 
