@@ -3,10 +3,10 @@
 
         <nav class="navbar  rounded-pill my-2">
             <div class="container f-flex justify-content-center">
-                <h5> <a class="navbar-brand text-info">Weather forecast by Ashkan Yaghobi</a></h5>
+                <h5> <a class="navbar-brand text-light outline">Weather forecast by Ashkan Yaghobi</a></h5>
                 <form @submit.prevent="changeCity" class="d-flex w-100" role="search">
                     <input class="form-control me-2 rounded" v-model.lazy="city" type="search"
-                        placeholder="Search Your City Weather ..." aria-label="Search">
+                        placeholder="Search Your City ..." aria-label="Search">
                     <button class="btn btn-outline-dark rounded  w-50"
                         type="submit">Search</button>
                 </form>
@@ -76,4 +76,7 @@ export default {
     }
 }
 </script>
-<style></style>
+<style>
+
+
+</style>
