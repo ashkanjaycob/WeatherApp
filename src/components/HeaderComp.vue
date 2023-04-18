@@ -3,11 +3,11 @@
 
         <nav class="navbar  rounded-pill my-2">
             <div class="container f-flex justify-content-center">
-                <h1> <a class="navbar-brand">Weather forecast by Ashkan Yaghobi</a></h1>
-                <form @submit.prevent="changeCity" class="d-flex w-75" role="search">
-                    <input class="form-control me-2 p-3 rounded-pill" v-model.lazy="city" type="search"
+                <h5> <a class="navbar-brand text-info">Weather forecast by Ashkan Yaghobi</a></h5>
+                <form @submit.prevent="changeCity" class="d-flex w-100" role="search">
+                    <input class="form-control me-2 rounded" v-model.lazy="city" type="search"
                         placeholder="Search Your City Weather ..." aria-label="Search">
-                    <button class="btn btn-outline-success rounded-pill w-50"
+                    <button class="btn btn-outline-dark rounded  w-50"
                         type="submit">Search</button>
                 </form>
             </div>
@@ -65,6 +65,7 @@ export default {
 
         function changeCity () {
             SetCity();
+            city.value = ""; 
         }
 
         // watch(city, () => {
