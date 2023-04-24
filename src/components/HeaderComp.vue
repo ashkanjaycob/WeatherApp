@@ -3,8 +3,8 @@
 
         <nav class="navbar  rounded-pill my-2">
             <div class="container f-flex justify-content-center">
-                <h5> <a class="navbar-brand text-light outline">Weather forecast by Ashkan Yaghobi</a></h5>
-                <form @submit.prevent="changeCity" class="d-flex w-100" role="search">
+                <h5> <a class="navbar-brand text-dark outline">Weather forecast by Ashkan Yaghobi</a></h5>
+                <form @submit.prevent="changeCity" class="d-flex w-auto" role="search">
                     <input class="form-control me-2 rounded" v-model.lazy="city" type="search"
                         placeholder="Search Your City ..." aria-label="Search">
                     <button class="btn btn-outline-dark rounded  w-50"
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <WeatherShow v-else :data="data"> </WeatherShow>
+        <WeatherShow v-else :data="data" :flag="flag" :show="show"> </WeatherShow>
     </div>
 </template>
 
@@ -42,6 +42,10 @@ export default {
 
         const city = ref("tehran");
 
+        const flag = ref();
+
+        const show = ref();
+
 
 
         function SetCity() {
@@ -51,8 +55,10 @@ export default {
                     isTrue.value = false;
                     data.value = response.data;
                     console.log(data.value);
-                    city.value = "";                   
-
+                    city.value = "";
+                    flag.value = `https://flagsapi.com/${response.data.sys.country }/shiny/32.png`
+                    show.value = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+                                    
                 })
                 .catch(function (error) {
                     // handle error
@@ -72,7 +78,7 @@ export default {
         //     SetCity();
         // });
 
-        return { Api, data, isTrue, city, SetCity, changeCity }
+        return { Api, data, isTrue, city, SetCity, changeCity , flag , show}
     }
 }
 </script>
